@@ -28,6 +28,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -65,5 +66,43 @@ class User extends Authenticatable
     public function r_lastname()
     {
         return $this->hasOne(Apellido::class, 'user_id', 'id');
+    }
+    /**************************************
+     * Método para resetear los atributos *
+     **************************************/
+    public function getRolAttribute(): string
+    {
+        //si el rol de éeste objeto es admin retorna administrador
+        if ($this->role === 'admin') {
+            return 'Administrador';
+        }
+        //    Si es vendedor(seller) entonces retorna vendedor caso contrario cliente
+        return $this->role === 'seller' ? 'Vendedor' : 'Cliente';
+    }
+
+    /***************************************
+     * scope para el filtrado de apellidos *
+     ***************************************/
+    public function scopeTermino($query, $termino)
+    {
+        if ($termino === '') {
+            return;
+        }
+        return $query->where('name', 'like', "%{$termino}%")
+            ->orWhere('email', 'like', "%{$termino}%")
+            ->orWhereHas('r_lastname', function ($query2) use ($termino) {
+                $query2->where('lastname', 'like', "%{$termino}%");
+            });
+    }
+    /***********************************
+     * scope para el filtrado de roles *
+     ***********************************/
+    public function scopeRole($query, $role)
+    {
+        if ($role === '') {
+            return;
+        }
+        //traernos info del camopo rol
+        return $query->whereRole($role);
     }
 }

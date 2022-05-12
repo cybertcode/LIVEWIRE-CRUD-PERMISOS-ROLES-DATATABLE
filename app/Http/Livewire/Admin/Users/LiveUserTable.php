@@ -15,6 +15,7 @@ class LiveUserTable extends Component
     public $camp = null; //Para fel campo a ordenar
     public $order = null; //Para fel campo a ordenar ascendente o descendente
     public $icon = '-sort'; //Para el ícono
+    public $user_role = ''; //Para filtrado por ro
     /*******************************************************
      * Para mantener persistente los filtros y la búsqueda *
      *******************************************************/
@@ -40,8 +41,8 @@ class LiveUserTable extends Component
     }
     public function render()
     {
-        $users = User::where('name', 'like', "%{$this->search}%")
-            ->orWhere('email', 'like', "%{$this->search}%");
+        $users = User::termino($this->search)
+            ->role($this->user_role);
         //Verificamos si el campo no son nuloss
         if ($this->camp and $this->order) {
             // Para ordenar por apellido
@@ -96,11 +97,13 @@ class LiveUserTable extends Component
     //Método para limpiar todo
     public function clear()
     {
-        $this->page = 1;
-        $this->order = null;
-        $this->camp = null;
-        $this->icon = '-sort';
-        $this->search = '';
-        $this->perPage = 5;
+        $this->reset(); //hace todo lo comentado
+        // $this->page = 1;
+        // $this->order = null;
+        // $this->camp = null;
+        // $this->icon = '-sort';
+        // $this->search = '';
+        // $this->perPage = 5;
+        // $this->user_role = '';
     }
 }
