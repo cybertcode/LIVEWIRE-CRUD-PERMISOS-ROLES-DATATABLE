@@ -15,7 +15,8 @@ class LiveUserTable extends Component
     public $camp = null; //Para fel campo a ordenar
     public $order = null; //Para fel campo a ordenar ascendente o descendente
     public $icon = '-sort'; //Para el ícono
-    public $user_role = ''; //Para filtrado por ro
+    public $user_role = ''; //Para filtrado por rol
+    public $showModal = 'hidden'; //Para mostras el modal de editar
     /*******************************************************
      * Para mantener persistente los filtros y la búsqueda *
      *******************************************************/
@@ -105,5 +106,16 @@ class LiveUserTable extends Component
         // $this->search = '';
         // $this->perPage = 5;
         // $this->user_role = '';
+    }
+    /************************
+     * METODOS PARA EL CRUD *
+     ************************/
+    /********************************
+     * Método para mostrar el modal *
+     ********************************/
+    public function showModal(User $user)
+    {
+        // dd($user);
+        $this->emit('showModal', $user);
     }
 }
