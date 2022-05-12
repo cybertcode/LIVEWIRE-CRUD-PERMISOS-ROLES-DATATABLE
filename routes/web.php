@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +27,8 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+});
+Route::group(['middleware' => 'auth:sanctum'], function () {
+    Route::resource('users', UserController::class)->names('users');
+    // Route::resource('/posts', PostController::class)->names('posts');
 });
