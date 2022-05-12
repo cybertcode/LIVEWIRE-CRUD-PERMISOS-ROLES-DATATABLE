@@ -44,6 +44,13 @@
 
                                     </button>
                                 </th>
+                                <th scope="col" class="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal ">
+                                    Apellidos
+                                    <button wire:click="sortable('lastname')">
+                                        <span class="fa-solid fa{{ $camp === 'lastname' ? $icon : '-sort' }}"></span>
+
+                                    </button>
+                                </th>
                                 <th scope="col" class="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal">
                                     Correo electrónico
                                     <button wire:click="sortable('email')">
@@ -75,6 +82,11 @@
                                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                     <p class="text-gray-900 whitespace-no-wrap">
                                         {{ $user->name }}
+                                    </p>
+                                </td>
+                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <p class="text-gray-900 whitespace-no-wrap">
+                                        {{ $user->r_lastname->lastname }}
                                     </p>
                                 </td>
                                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">

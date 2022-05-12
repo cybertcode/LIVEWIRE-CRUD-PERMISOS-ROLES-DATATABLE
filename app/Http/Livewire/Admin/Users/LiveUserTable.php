@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Users;
 
+use App\Models\admin\Apellido;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -43,8 +44,13 @@ class LiveUserTable extends Component
             ->orWhere('email', 'like', "%{$this->search}%");
         //Verificamos si el campo no son nuloss
         if ($this->camp and $this->order) {
-            //Ejecuta la sentencia y lo agrega al usuario + el orderby
-            $users = $users->orderBy($this->camp, $this->order);
+            // Para ordenar por apellido
+            if ($this->camp === 'lastname') {
+                $users = $users->orderBy(Apellido::select('lastname')->whereColumn('apellidos.user_id', 'users.id'), $this->order);
+            } else {
+                //Ejecuta la sentencia y lo agrega al usuario + el orderby
+                $users = $users->orderBy($this->camp, $this->order);
+            }
         } else {
             $this->camp = null;
             $this->order = null;
