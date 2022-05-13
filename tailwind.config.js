@@ -1,4 +1,4 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
     important: true,
@@ -22,5 +22,9 @@ module.exports = {
     plugins: [
         require("@tailwindcss/forms"),
         require("@tailwindcss/typography"),
+        require("@tailwindcss/forms"),
     ],
+    future: {
+        purgeLayersByDefault: true,
+    },
 };
