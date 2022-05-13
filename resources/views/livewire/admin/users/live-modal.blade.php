@@ -12,6 +12,7 @@
                 </div>
                 <div class="flex">
                     <x-admin.users.component-input placeholder="Ingrese Correo electrónico" name="email" label="Correo electrónico" type="email"></x-admin.users.component-input>
+                    <x-admin.users.component-input-select name="role" label="Roles" :options="['admin' => 'Administrador','seller' => 'Vendedor','client' => 'Cliente']"></x-admin.users.component-input-select>
                 </div>
             </form>
         </div>
