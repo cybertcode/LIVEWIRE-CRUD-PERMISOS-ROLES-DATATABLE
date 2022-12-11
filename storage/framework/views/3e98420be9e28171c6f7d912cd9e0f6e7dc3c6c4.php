@@ -2,6 +2,11 @@
     <div class="py-8">
         <div class="flex flex-row mb-1 sm:mb-0 justify-between w-full">
             
+            <button
+                class="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-purple-600 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200"
+                type="button" wire:click="clear">
+                <i class="fa fa-eraser"></i> Limpiar
+            </button>
             <div>
                 Mostrar
                 <select
@@ -15,6 +20,7 @@
                 </select>
                 Registros
             </div>
+
             <div class="text-end">
                 <form class="flex flex-col md:flex-row w-3/4 md:w-full max-w-sm md:space-x-3 space-y-3 md:space-y-0 justify-center">
                     <div class="relative">
@@ -22,11 +28,6 @@
                             class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                             placeholder="buscar" wire:model="search" />
                     </div>
-                    <button
-                        class="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-purple-600 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200"
-                        type="button" wire:click="clear">
-                        <i class="fa fa-eraser"></i> Limpiar
-                    </button>
                     <select
                         class="rounded-lg border-transparent appearance-none border border-gray-400 py-1 px-6 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent "
                         wire:model="user_role">
@@ -87,7 +88,7 @@
                             </button>
 
                         </th>
-                        <th scope="col" class="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-left text-sm uppercase font-normal">Acciones</th>
+                        <th scope="col" class="px-5 py-3 bg-white border-b border-gray-200 text-gray-800 text-center text-sm uppercase font-normal" style="width: 22% !important;">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>

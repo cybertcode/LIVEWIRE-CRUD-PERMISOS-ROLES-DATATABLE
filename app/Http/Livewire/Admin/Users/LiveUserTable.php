@@ -14,8 +14,10 @@ class LiveUserTable extends Component
     use WithPagination;
     public $search = "";
     public $perPage = 5; //Para filtrar cuando se ve
-    public $camp = null; //Para fel campo a ordenar
-    public $order = null; //Para fel campo a ordenar ascendente o descendente
+    // public $camp = null; //Para fel campo a ordenar ok
+    // public $order = null; //Para fel campo a ordenar ascendente o descendente ok
+    public $camp = 'created_at'; //Para fel campo a ordenar ok
+    public $order = 'desc'; //Para fel campo a ordenar ascendente o descendente ok
     public $icon = '-sort'; //Para el ícono
     public $user_role = ''; //Para filtrado por rol
     public $showModal = 'hidden'; //Para mostras el modal de editar
