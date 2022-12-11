@@ -21,8 +21,9 @@ class RequestUpdateUser extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules($user)
     {
+        dump($user);
         return [
             'name' => "required|min:3|max:30",
             'lastname' => "required|min:3|max:30",

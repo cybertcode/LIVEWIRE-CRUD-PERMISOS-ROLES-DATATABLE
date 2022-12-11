@@ -7,6 +7,8 @@ use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
 
+use function PHPUnit\Framework\isNull;
+
 class LiveUserTable extends Component
 {
     use WithPagination;
@@ -120,6 +122,11 @@ class LiveUserTable extends Component
     public function showModal(User $user)
     {
         // dd($user);
-        $this->emit('showModal', $user);
+        if (!empty($user->name)) {
+            $this->emit('showModal', $user);
+        } else {
+            // dd($user);
+            $this->emit('showModalNewUser');
+        }
     }
 }

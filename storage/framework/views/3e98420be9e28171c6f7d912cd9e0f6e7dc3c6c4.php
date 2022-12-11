@@ -30,12 +30,16 @@
                     <select
                         class="rounded-lg border-transparent appearance-none border border-gray-400 py-1 px-6 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent "
                         wire:model="user_role">
-
                         <option value="" selected>Seleccione</option>
                         <option value="admin">Admin</option>
                         <option value="seller">Vendedor</option>
                         <option value="client">Cliente</option>
                     </select>
+                    <button
+                        class="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-blue-200"
+                        type="button" wire:click="showModal">
+                        <i class=" fa fa-add"></i> Nuevo
+                    </button>
             </div>
             </form>
         </div>

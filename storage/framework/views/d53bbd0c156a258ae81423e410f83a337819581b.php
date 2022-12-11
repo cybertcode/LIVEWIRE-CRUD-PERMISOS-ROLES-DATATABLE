@@ -1,7 +1,7 @@
 <div>
-    <form wire:submit.prevent="updateUser">
+    <form wire:submit.prevent="<?php echo e($method); ?>">
         <?php if (isset($component)) { $__componentOriginal871898a9f1a4e306c9258395c1713eb900372a49 = $component; } ?>
-<?php $component = $__env->getContainer()->make(App\View\Components\Admin\Users\ComponentModal::class, ['showModal' => $showModal] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Admin\Users\ComponentModal::class, ['showModal' => $showModal,'action' => $action] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('admin.users.component-modal'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>

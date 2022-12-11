@@ -13,10 +13,12 @@ class ComponentModal extends Component
      */
     // Inicializamos el parámetro
     public $showModal;
+    public $action;
     // Le pasamos el parámetro showModal
-    public function __construct(string $showModal)
+    public function __construct(string $showModal, string $action)
     {
         $this->showModal = $showModal;
+        $this->action = $action;
     }
 
     /**
