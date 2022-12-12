@@ -32,7 +32,7 @@ class RequestUpdateUser extends FormRequest
             // 'email' => "email|required|unique:users,email," . $user->id, //FORMA 001
             'email' => ["email", "required", Rule::unique('users', 'email')->ignore($user)],
             'role' => "required|in:client,seller,admin",
-            // 'password' => 'required|confirmed'
+            'profile_photo_path' => 'nullable|image|mimes:jpeg,png,jpg|max:1024'
         ];
         if ($user == 'null') {
             $validation_password = ['password' => 'required|confirmed'];

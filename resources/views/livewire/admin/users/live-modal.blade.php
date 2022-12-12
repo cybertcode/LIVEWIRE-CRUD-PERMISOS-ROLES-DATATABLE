@@ -15,6 +15,9 @@
                     <x-admin.users.component-input-select name="role" label="Roles" :options="['admin' => 'Administrador','seller' => 'Vendedor','client' => 'Cliente']">
                     </x-admin.users.component-input-select>
                 </div>
+                <div class="flex">
+                    <x-admin.users.component-input placeholder="Seleccione foto" name="profile_photo_path" label="Imagen" type="file"></x-admin.users.component-input>
+                </div>
                 @if($action =='Guardar')
                 <div class="flex">
                     <x-admin.users.component-input placeholder="Contraseña" name="password" label="Contraseña" type="password"></x-admin.users.component-input>

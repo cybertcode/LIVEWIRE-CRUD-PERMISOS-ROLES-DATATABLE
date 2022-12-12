@@ -4,12 +4,17 @@ namespace App\Http\Livewire\Admin\Users;
 
 use App\Models\User;
 use Livewire\Component;
+use Illuminate\Http\Request;
+use Livewire\WithFileUploads;
 use App\Models\admin\Apellido;
 use Illuminate\Support\Facades\DB;
+use Livewire\TemporaryUploadedFile;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\RequestUpdateUser;
 
 class LiveModal extends Component
 {
+    use WithFileUploads;
     public $showModal = 'hidden'; //para abrir el modal
     public $name = '';
     public $lastname = '';
@@ -17,10 +22,11 @@ class LiveModal extends Component
     public $action = '';
     public $method = '';
     public $role = '';
-    public $user = 'null';
+    public $user = null;
     public $password = '';
     public $titleModal = '';
     public $password_confirmation = '';
+    public $profile_photo_path = null;
     protected $listeners = ['showModal' => 'abrirModal', 'showModalNewUser' => 'abrirModalNuevoUsuario'];
     public function render()
     {
@@ -58,12 +64,16 @@ class LiveModal extends Component
         $this->method = 'storeUser';
         $this->showModal = '';
     }
-    public function updateUser()
+    public function updateUser(Request $request)
     {
+        // dd($request->all());
         // Validamos los campos
         $requestUserUpdate = new RequestUpdateUser();
         //Values enviamos solo los input correctamente validados
         $values = $this->validate($requestUserUpdate->rules($this->user), $requestUserUpdate->messages());
+
+        $profile = ['profile_photo_path' => $this->loadImage($values['profile_photo_path'])];
+        $values = array_merge($values, $profile);
         $this->user->update($values);
         $this->user->r_lastname()->update(['lastname' => $values['lastname']]);
         $this->emit('userListUpdate');
@@ -81,15 +91,28 @@ class LiveModal extends Component
         // dd($this->user);
         $requestUserUpdate = new RequestUpdateUser();
         $values = $this->validate($requestUserUpdate->rules($this->user), $requestUserUpdate->messages());
+        // dd($values);
         $user = new User();
         $apellido = new Apellido();
         $apellido->lastname = $values['lastname'];
         $user->fill($values);
+        if ($values['profile_photo_path']) {
+            $url = Storage::put('img', $values['profile_photo_path']);
+            $user->profile_photo_path = $url;
+        }
+        // $user->profile_photo_path = $this->loadImage($values['profile_photo_path']);
         $user->password = bcrypt($values['password']);
         DB::transaction(function () use ($user, $apellido) {
             $user->save();
             $apellido->r_user()->associate($user)->save();
         });
         $this->cerrarModal();
+    }
+    private function loadImage(TemporaryUploadedFile $image)
+    {
+        $extension = $image->getClientOriginalExtension();
+        // $new_name = time() . '.' . $extension;
+        $location = Storage::disk('public')->put('img', $image);
+        return $location;
     }
 }
