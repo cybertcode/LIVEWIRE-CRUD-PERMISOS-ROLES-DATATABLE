@@ -64,16 +64,31 @@ class LiveModal extends Component
         $this->method = 'storeUser';
         $this->showModal = '';
     }
-    public function updateUser(Request $request)
+    public function updateUser()
     {
         // dd($request->all());
         // Validamos los campos
         $requestUserUpdate = new RequestUpdateUser();
         //Values enviamos solo los input correctamente validados
         $values = $this->validate($requestUserUpdate->rules($this->user), $requestUserUpdate->messages());
+        // $profile = ['profile_photo_path' => $this->loadImage($values['profile_photo_path'])];
+        // $values = array_merge($values, $profile);
 
-        $profile = ['profile_photo_path' => $this->loadImage($values['profile_photo_path'])];
-        $values = array_merge($values, $profile);
+        if ($values['profile_photo_path']) {
+            //Guardamos en servidor y almacenar la ruta en $url
+            $url = Storage::put('img', $values['profile_photo_path']);
+            if ($this->user->profile_photo_path) {
+                //elimnamos la imagen
+                Storage::delete($this->user->profile_photo_path);
+                //Actualizamos cn la nueva ruta
+                $values['profile_photo_path'] = $url;
+                // $course->image->update(['url' => $url]);
+            } else {
+                $values['profile_photo_path'] = $url;
+                // $course->image()->create(['url' => $url]);
+            }
+        }
+
         $this->user->update($values);
         $this->user->r_lastname()->update(['lastname' => $values['lastname']]);
         $this->emit('userListUpdate');
@@ -97,8 +112,12 @@ class LiveModal extends Component
         $apellido->lastname = $values['lastname'];
         $user->fill($values);
         if ($values['profile_photo_path']) {
-            $url = Storage::put('img', $values['profile_photo_path']);
-            $user->profile_photo_path = $url;
+            $image = $this->profile_photo_path->store('img');
+            // $url = Storage::put('img', $values['profile_photo_path']);
+            // $user->profile_photo_path = $url;
+            $user->profile_photo_path = $image;
+        } else {
+            $user->profile_photo_path = null;
         }
         // $user->profile_photo_path = $this->loadImage($values['profile_photo_path']);
         $user->password = bcrypt($values['password']);
