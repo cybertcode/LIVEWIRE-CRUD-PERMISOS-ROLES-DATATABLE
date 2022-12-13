@@ -2,12 +2,13 @@
 
 namespace App\Http\Livewire\Admin\Users;
 
-use App\Models\admin\Apellido;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
+use App\Models\admin\Apellido;
 
 use function PHPUnit\Framework\isNull;
+use Illuminate\Support\Facades\Storage;
 
 class LiveUserTable extends Component
 {
@@ -31,7 +32,7 @@ class LiveUserTable extends Component
     ];
     // Para escuchar el emit de userListUpdate
     protected $listeners = [
-        'userListUpdate' => 'render'
+        'userListUpdate' => 'render', 'deleteUserok' => 'deleteUser'
     ];
     /*********************************************
      * Método para resetear el url de paginación *
@@ -130,5 +131,15 @@ class LiveUserTable extends Component
             // dd($user);
             $this->emit('showModalNewUser');
         }
+    }
+    public function deleteUser(User $user)
+    {
+        if ($user->profile_photo_path) {
+            //elimnamos la imagen
+            Storage::delete($user->profile_photo_path);
+        }
+        $user->r_lastname()->delete();
+        $user->delete();
+        $this->emit('deleteUser', $user);
     }
 }

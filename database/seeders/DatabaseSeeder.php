@@ -26,6 +26,6 @@ class DatabaseSeeder extends Seeder
             'user_id' => $user->id,
             'lastname' => 'HH'
         ]);
-        Apellido::factory(5)->create();
+        Apellido::factory(100)->create();
     }
 }

@@ -2,7 +2,7 @@
     <form wire:submit.prevent="{{ $method }}">
         <x-admin.users.component-modal :showModal="$showModal" :action="$action">
             <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+                <h3 class="text-lg font-medium leading-6 text-gray-900" id="modal-title">
                     {{ $titleModal }}
                 </h3>
                 <hr />
@@ -30,25 +30,21 @@
                             label="Confirmar contraseña" type="password"></x-admin.users.component-input>
                     </div>
                 @endif
-                <div class="text-center mt-4" wire:loading>
+                <div class="mt-4 text-center" wire:loading>
                     <span
-                        class="inline-flex items-center rounded-full p-2 bg-indigo-500 text-white group transition-all duration-500 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-none"
+                        class="inline-flex items-center p-2 text-white transition-all duration-500 bg-indigo-500 rounded-full group focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-none"
                         role="alert" tabindex="0">
                         <span
-                            class="whitespace-nowrap inline-block group-hover:max-w-screen-2xl group-focus:max-w-screen-2xl max-w-0 scale-80 group-hover:scale-100 overflow-hidden transition-all duration-500 group-hover:px-2 group-focus:px-2">Cargando
+                            class="inline-block overflow-hidden transition-all duration-500 whitespace-nowrap group-hover:max-w-screen-2xl group-focus:max-w-screen-2xl max-w-0 scale-80 group-hover:scale-100 group-hover:px-2 group-focus:px-2">Cargando
                             imagen...</span>
                     </span>
                 </div>
-                @if ($profile_photo_path)
-                    <div class="flex justify-center">
-                        <img src="{{ $profile_photo_path->temporaryUrl() }}" alt="no hay"
-                            class="shadow-xl rounded-full object-cover mt-4 mb-4">
-                    </div>
-                @endif
+                {{-- @if ($profile_photo_path)
+                @endif --}}
                 @isset($user->profile_photo_path)
                     <div class="flex justify-center">
                         <img src="{{ Storage::url($user->profile_photo_path) }}" alt="no hay"
-                            class="shadow-xl rounded-full object-cover mt-4 mb-4">
+                            class="object-cover mt-4 mb-4 rounded-full shadow-xl">
                     </div>
                 @endisset
 
