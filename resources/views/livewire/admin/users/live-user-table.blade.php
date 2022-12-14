@@ -99,9 +99,13 @@
                             </button>
 
                         </th>
-                        <th scope="col"
-                            class="px-5 py-3 text-sm font-normal text-center text-gray-800 uppercase bg-white border-b border-gray-200"
-                            style="width: 22% !important;">Acciones</th>
+                        @if (auth()->user()->can('usuario update') or
+                            auth()->user()->can('usuario delete'))
+                            <th scope="col"
+                                class="px-5 py-3 text-sm font-normal text-center text-gray-800 uppercase bg-white border-b border-gray-200"
+                                style="width: 22% !important;">Acciones
+                            </th>
+                        @endif
                     </tr>
                 </thead>
                 <tbody>
@@ -159,16 +163,20 @@
                             </td>
                             <td class="px-2 py-2 text-sm bg-white border-b border-gray-200 ">
                                 <div class="">
-                                    <a href="javascript:void(0)" wire:click="showModal({{ $user->id }})"
-                                        type="button"
-                                        class="justify-center px-4 py-2 mx-0 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm">
-                                        <i class="fa-solid fa-pen-to-square"></i> Editar
-                                    </a>
-                                    <a href="javascript:void(0)" type="button"
-                                        class="justify-center px-4 py-2 mx-0 text-base font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
-                                        onclick="confirmDeleteUser({{ $user->id }})">
-                                        <i class="fa-solid fa-circle-xmark"></i> Eliminar
-                                    </a>
+                                    @can('usuario update')
+                                        <a href="javascript:void(0)" wire:click="showModal({{ $user->id }})"
+                                            type="button"
+                                            class="justify-center px-4 py-2 mx-0 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm">
+                                            <i class="fa-solid fa-pen-to-square"></i> Editar
+                                        </a>
+                                    @endcan
+                                    @can('usuario delete')
+                                        <a href="javascript:void(0)" type="button"
+                                            class="justify-center px-4 py-2 mx-0 text-base font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
+                                            onclick="confirmDeleteUser({{ $user->id }})">
+                                            <i class="fa-solid fa-circle-xmark"></i> Eliminar
+                                        </a>
+                                    @endcan
                                 </div>
                             </td>
                         </tr>

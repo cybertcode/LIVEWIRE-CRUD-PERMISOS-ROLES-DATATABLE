@@ -29,6 +29,10 @@ Route::middleware([
     })->name('dashboard');
 });
 Route::group(['middleware' => 'auth:sanctum'], function () {
-    Route::resource('users', UserController::class)->names('users');
+    Route::resource('users', UserController::class)->middleware('role:administrador')->names('users');
+    // ruta url| ruta de vista | nombre de ruta
+    Route::view('sellers', 'admin.seller.index')->middleware('role:administrador|vendedor')->name('sellers');
+    Route::view('clients', 'admin.client.index')->middleware('role:administrador|cliente')->name('clients');
+    Route::view('roles', 'admin.role.index')->middleware('role:administrador')->name('roles');
     // Route::resource('/posts', PostController::class)->names('posts');
 });
