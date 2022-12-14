@@ -33,9 +33,10 @@
                         class="px-6 py-1 text-base text-gray-700 placeholder-gray-400 bg-white border border-transparent border-gray-400 rounded-lg shadow-sm appearance-none focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent "
                         wire:model="user_role">
                         <option value="" selected>Seleccione</option>
-                        <option value="admin">Admin</option>
-                        <option value="seller">Vendedor</option>
-                        <option value="client">Cliente</option>
+                        <?php $__currentLoopData = $roles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $role): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($role); ?>"><?php echo e($role); ?></option>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        
                     </select>
                     <button
                         class="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-blue-200"
@@ -157,7 +158,7 @@
                             </td>
                             <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
                                 <p class="text-gray-900 whitespace-no-wrap">
-                                    <?php echo e($user->rol); ?>
+                                    <?php echo e($user->roles()->first()->name ?? 'Sin rol'); ?>
 
                                 </p>
                             </td>

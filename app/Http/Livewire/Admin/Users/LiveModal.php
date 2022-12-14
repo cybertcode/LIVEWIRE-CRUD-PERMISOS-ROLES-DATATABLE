@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Livewire\WithFileUploads;
 use App\Models\admin\Apellido;
 use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Role;
 use Livewire\TemporaryUploadedFile;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\RequestUpdateUser;
@@ -21,6 +22,7 @@ class LiveModal extends Component
     public $email = '';
     public $action = '';
     public $method = '';
+    public $roles = []; //para roles dinámicos
     public $role = '';
     public $user = null;
     public $password = '';
@@ -28,6 +30,10 @@ class LiveModal extends Component
     public $password_confirmation = '';
     public $profile_photo_path = null;
     protected $listeners = ['showModal' => 'abrirModal', 'showModalNewUser' => 'abrirModalNuevoUsuario'];
+    public function mount()
+    {
+        $this->roles = Role::pluck('name', 'name')->toArray();
+    }
     public function render()
     {
         return view('livewire.admin.users.live-modal');
@@ -91,7 +97,7 @@ class LiveModal extends Component
         // $this->user->role = $values['role'];
         // $this->user->profile_photo_path = $values['profile_photo_path'];
         // $this->user->save();
-
+        $this->user->assignRole($values['role']);
         $this->user->r_lastname()->update(['lastname' => $values['lastname']]);
         $this->emit('userListUpdate');
         $this->reset();
@@ -122,6 +128,7 @@ class LiveModal extends Component
             $user->profile_photo_path = null;
         }
         // $user->profile_photo_path = $this->loadImage($values['profile_photo_path']);
+        $user->assignRole($values['role']);
         $user->password = bcrypt($values['password']);
         DB::transaction(function () use ($user, $apellido) {
             $user->save();

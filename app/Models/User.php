@@ -30,7 +30,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role',
+        // 'role',
     ];
 
     /**
@@ -99,12 +99,13 @@ class User extends Authenticatable
     /***********************************
      * scope para el filtrado de roles *
      ***********************************/
-    public function scopeRole($query, $role)
-    {
-        if ($role === '') {
-            return;
-        }
-        //traernos info del camopo rol
-        return $query->whereRole($role);
-    }
+    // solo era para fines prácticos del crud
+    // public function scopeRole($query, $role)
+    // {
+    //     if ($role === '') {
+    //         return;
+    //     }
+    //     //traernos info del camopo rol
+    //     return $query->whereRole($role);
+    // }
 }

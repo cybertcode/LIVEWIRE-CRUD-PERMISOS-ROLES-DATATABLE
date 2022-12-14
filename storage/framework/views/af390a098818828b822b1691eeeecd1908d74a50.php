@@ -16,22 +16,17 @@
     <div class="py-2">
         <div class="max-w-[90%] mx-auto sm:px-6 lg:px-8">
             <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
-                
-                <?php
-if (! isset($_instance)) {
-    $html = \Livewire\Livewire::mount('admin.users.live-user-table')->html();
-} elseif ($_instance->childHasBeenRendered('SNRq76C')) {
-    $componentId = $_instance->getRenderedChildComponentId('SNRq76C');
-    $componentTag = $_instance->getRenderedChildComponentTagName('SNRq76C');
-    $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('SNRq76C');
-} else {
-    $response = \Livewire\Livewire::mount('admin.users.live-user-table');
-    $html = $response->html();
-    $_instance->logRenderedChild('SNRq76C', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
-}
-echo $html;
-?>
+                <div class="flex">
+                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('cliente create')): ?>
+                        <button class="flex-1">Crear</button>
+                    <?php endif; ?>
+                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('cliente update')): ?>
+                        <button class="flex-1">Actualizar</button>
+                    <?php endif; ?>
+                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('cliente delete')): ?>
+                        <button class="flex-1">Eliminar</button>
+                    <?php endif; ?>
+                </div>
             </div>
         </div>
     </div>
@@ -40,15 +35,15 @@ echo $html;
         <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('admin.users.live-modal', [])->html();
-} elseif ($_instance->childHasBeenRendered('t5Bacxc')) {
-    $componentId = $_instance->getRenderedChildComponentId('t5Bacxc');
-    $componentTag = $_instance->getRenderedChildComponentTagName('t5Bacxc');
+} elseif ($_instance->childHasBeenRendered('skKER32')) {
+    $componentId = $_instance->getRenderedChildComponentId('skKER32');
+    $componentTag = $_instance->getRenderedChildComponentTagName('skKER32');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('t5Bacxc');
+    $_instance->preserveRenderedChild('skKER32');
 } else {
     $response = \Livewire\Livewire::mount('admin.users.live-modal', []);
     $html = $response->html();
-    $_instance->logRenderedChild('t5Bacxc', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('skKER32', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>

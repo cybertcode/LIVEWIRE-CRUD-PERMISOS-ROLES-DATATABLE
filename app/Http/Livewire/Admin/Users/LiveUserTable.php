@@ -7,6 +7,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\admin\Apellido;
 
+use Spatie\Permission\Models\Role;
 use function PHPUnit\Framework\isNull;
 use Illuminate\Support\Facades\Storage;
 
@@ -52,7 +53,10 @@ class LiveUserTable extends Component
     public function render()
     {
         $users = User::termino($this->search)
-            ->role($this->user_role);
+            // ->role($this->user_role); //anterior
+            ->when($this->user_role != '', function ($query) {
+                return $query->role($this->user_role);
+            });
         //Verificamos si el campo no son nuloss
         if ($this->camp and $this->order) {
             // Para ordenar por apellido
@@ -67,7 +71,8 @@ class LiveUserTable extends Component
             $this->order = null;
         }
         $users = $users->paginate($this->perPage);
-        return view('livewire.admin.users.live-user-table', ['users' => $users]);
+        $roles = Role::pluck('name', 'name');
+        return view('livewire.admin.users.live-user-table', ['users' => $users, 'roles' => $roles]);
     }
     public function sortable($camp)
     {

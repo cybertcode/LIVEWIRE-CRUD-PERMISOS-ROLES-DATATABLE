@@ -7,10 +7,17 @@
     <div class="py-2">
         <div class="max-w-[90%] mx-auto sm:px-6 lg:px-8">
             <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
-                {{-- /**********************************************
-                * Aquí agregamos nuestro componente livewire *
-                **********************************************/  --}}
-                @livewire('admin.users.live-user-table')
+                <div class="flex">
+                    @can('cliente create')
+                        <button class="flex-1">Crear</button>
+                    @endcan
+                    @can('cliente update')
+                        <button class="flex-1">Actualizar</button>
+                    @endcan
+                    @can('cliente delete')
+                        <button class="flex-1">Eliminar</button>
+                    @endcan
+                </div>
             </div>
         </div>
     </div>

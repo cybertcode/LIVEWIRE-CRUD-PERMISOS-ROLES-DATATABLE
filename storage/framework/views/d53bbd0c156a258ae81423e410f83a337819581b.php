@@ -61,7 +61,7 @@
 <?php unset($__componentOriginal9377d4ee2e3fdd095b485ef08957c302bc866a87); ?>
 <?php endif; ?>
                     <?php if (isset($component)) { $__componentOriginalb3957d781c7e5d02f764ff127b574e50ad164226 = $component; } ?>
-<?php $component = $__env->getContainer()->make(App\View\Components\Admin\Users\ComponentInputSelect::class, ['name' => 'role','label' => 'Roles','options' => ['admin' => 'Administrador', 'seller' => 'Vendedor', 'client' => 'Cliente']] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Admin\Users\ComponentInputSelect::class, ['name' => 'role','label' => 'Roles','options' => $roles] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('admin.users.component-input-select'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
