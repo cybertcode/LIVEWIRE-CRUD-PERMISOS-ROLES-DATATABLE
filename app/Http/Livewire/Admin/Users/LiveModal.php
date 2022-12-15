@@ -40,6 +40,7 @@ class LiveModal extends Component
     }
     // Mostrar modal
     public function abrirModal(User $user)
+
     {
         // dd($user);
         $this->user = $user;
