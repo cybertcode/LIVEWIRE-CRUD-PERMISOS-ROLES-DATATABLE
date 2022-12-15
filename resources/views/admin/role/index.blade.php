@@ -18,6 +18,6 @@
  * Incluimos el componente del modal *
  *************************************/  --}}
     @push('modals')
-        <livewire:admin.users.live-modal>
+        <livewire:admin.role.live-modal-edit-role-permission>
         @endpush
 </x-app-layout>

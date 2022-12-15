@@ -20,15 +20,15 @@
                 <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('admin.role.live-role-table')->html();
-} elseif ($_instance->childHasBeenRendered('6W5qWdV')) {
-    $componentId = $_instance->getRenderedChildComponentId('6W5qWdV');
-    $componentTag = $_instance->getRenderedChildComponentTagName('6W5qWdV');
+} elseif ($_instance->childHasBeenRendered('C12yREC')) {
+    $componentId = $_instance->getRenderedChildComponentId('C12yREC');
+    $componentTag = $_instance->getRenderedChildComponentTagName('C12yREC');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('6W5qWdV');
+    $_instance->preserveRenderedChild('C12yREC');
 } else {
     $response = \Livewire\Livewire::mount('admin.role.live-role-table');
     $html = $response->html();
-    $_instance->logRenderedChild('6W5qWdV', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('C12yREC', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -39,16 +39,16 @@ echo $html;
     <?php $__env->startPush('modals'); ?>
         <?php
 if (! isset($_instance)) {
-    $html = \Livewire\Livewire::mount('admin.users.live-modal', [])->html();
-} elseif ($_instance->childHasBeenRendered('TLmUTWv')) {
-    $componentId = $_instance->getRenderedChildComponentId('TLmUTWv');
-    $componentTag = $_instance->getRenderedChildComponentTagName('TLmUTWv');
+    $html = \Livewire\Livewire::mount('admin.role.live-modal-edit-role-permission', [])->html();
+} elseif ($_instance->childHasBeenRendered('DsJ9oVB')) {
+    $componentId = $_instance->getRenderedChildComponentId('DsJ9oVB');
+    $componentTag = $_instance->getRenderedChildComponentTagName('DsJ9oVB');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('TLmUTWv');
+    $_instance->preserveRenderedChild('DsJ9oVB');
 } else {
-    $response = \Livewire\Livewire::mount('admin.users.live-modal', []);
+    $response = \Livewire\Livewire::mount('admin.role.live-modal-edit-role-permission', []);
     $html = $response->html();
-    $_instance->logRenderedChild('TLmUTWv', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('DsJ9oVB', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
