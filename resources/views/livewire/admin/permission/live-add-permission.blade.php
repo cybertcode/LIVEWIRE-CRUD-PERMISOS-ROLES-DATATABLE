@@ -6,14 +6,15 @@
             <div class=" w-full mt-3 ">
                 @foreach ($permission_check as $key => $p)
                     <div class="flex flex-row">
-                        <div class="mr-2 text-indigo-600">
+                        <div class="mr-2 {{ $p['check'] ? 'text-indigo-600' : 'text-gray-200' }} w-1/12">
                             <span class="fa fa-check "></span>
                         </div>
                         <div class="w-3/4 text-gray-600">
                             {{ $key }}
                         </div>
                         <div class="flex-1">
-                            <input type="checkbox" class="">
+                            <input type="checkbox" class="" wire:model="permission_check.{{ $key }}.check"
+                                wire:click="addPermissionKey('{{ $key }}')">
                         </div>
                     </div>
                 @endforeach

@@ -14,7 +14,7 @@
             <div class=" w-full mt-3 ">
                 <?php $__currentLoopData = $permission_check; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $p): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="flex flex-row">
-                        <div class="mr-2 text-indigo-600">
+                        <div class="mr-2 <?php echo e($p['check'] ? 'text-indigo-600' : 'text-gray-200'); ?> w-1/12">
                             <span class="fa fa-check "></span>
                         </div>
                         <div class="w-3/4 text-gray-600">
@@ -22,7 +22,8 @@
 
                         </div>
                         <div class="flex-1">
-                            <input type="checkbox" class="">
+                            <input type="checkbox" class="" wire:model="permission_check.<?php echo e($key); ?>.check"
+                                wire:click="addPermissionKey('<?php echo e($key); ?>')">
                         </div>
                     </div>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

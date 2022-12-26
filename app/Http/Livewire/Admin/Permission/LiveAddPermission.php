@@ -36,4 +36,8 @@ class LiveAddPermission extends Component
         $this->showModal = 'hidden';
         // $this->reset();
     }
+    public function addPermissionKey($permission)
+    {
+        dd($permission);
+    }
 }
