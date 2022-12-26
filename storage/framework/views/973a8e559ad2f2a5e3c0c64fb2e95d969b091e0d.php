@@ -11,13 +11,21 @@
         <div class="w-full">
             <h3 class="text-center mt-3 text-gray-600 mb-3">Permisos registrados</h3>
             <hr>
-            <div class="flex flex-row w-full mt-3 text-gray-600">
-                <div class="w-3/4">
-                    Nombre del Permiso
-                </div>
-                <div class="flex-1">
-                    check
-                </div>
+            <div class=" w-full mt-3 ">
+                <?php $__currentLoopData = $permission_check; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $p): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <div class="flex flex-row">
+                        <div class="mr-2 text-indigo-600">
+                            <span class="fa fa-check "></span>
+                        </div>
+                        <div class="w-3/4 text-gray-600">
+                            <?php echo e($key); ?>
+
+                        </div>
+                        <div class="flex-1">
+                            <input type="checkbox" class="">
+                        </div>
+                    </div>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </div>
 
