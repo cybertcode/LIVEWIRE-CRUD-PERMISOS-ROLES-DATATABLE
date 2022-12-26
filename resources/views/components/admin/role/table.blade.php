@@ -1,6 +1,6 @@
 <div class="container max-w-3xl px-4 mx-auto sm:px-8">
     <div class="py-8">
-        <div class="flex flex-row justify-between w-full mb-1 sm:mb-0">
+        {{-- <div class="flex flex-row justify-between w-full mb-1 sm:mb-0">
             <h2 class="text-2xl leading-tight">
                 <caption>{{ $caption }}</caption>
             </h2>
@@ -19,7 +19,7 @@
                     </button>
                 </form>
             </div>
-        </div>
+        </div> --}}
         {{ $slot }}
     </div>
 </div>

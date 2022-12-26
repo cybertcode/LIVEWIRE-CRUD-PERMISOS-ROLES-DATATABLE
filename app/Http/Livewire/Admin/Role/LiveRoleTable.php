@@ -17,4 +17,10 @@ class LiveRoleTable extends Component
         });
         return view('livewire.admin.role.live-role-table', compact('roles'));
     }
+    public function deleteRole(Role $role)
+    {
+        // dd($role);
+        $role->delete();
+        $this->render();
+    }
 }

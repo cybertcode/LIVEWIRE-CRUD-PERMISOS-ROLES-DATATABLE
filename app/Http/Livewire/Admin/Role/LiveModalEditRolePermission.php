@@ -10,6 +10,8 @@ class LiveModalEditRolePermission extends Component
 {
     public $role;
     public $target;
+    public $actionTarget;
+    public $button;
     public $showModal = false;
     protected $listeners = [
         'toogleModal'
@@ -26,6 +28,11 @@ class LiveModalEditRolePermission extends Component
         if ($model_id && $model) {
             $this->target = $model == 'Role' ? Role::find($model_id) : '';
             $this->role = $this->target->name;
+            $this->button = 'Actualizar';
+            $this->actionTarget = 'updateTarget';
+        } else {
+            $this->button = 'Registrar';
+            $this->actionTarget = 'createTarget';
         }
         $this->showModal = $this->showModal ? false : true;
     }
@@ -38,5 +45,14 @@ class LiveModalEditRolePermission extends Component
         // dd($values);
         // Para refrescar la tabla
         $this->emit('updateListRole');
+    }
+    public function createTarget()
+    {
+        $this->reset(); //Pone los valores por default
+        dd('success');
+    }
+    public function clear()
+    {
+        $this->reset();
     }
 }
