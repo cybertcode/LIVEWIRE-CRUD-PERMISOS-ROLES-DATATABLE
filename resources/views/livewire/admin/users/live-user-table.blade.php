@@ -29,16 +29,20 @@
                             class="flex-1 w-full px-4 py-2 text-base text-gray-700 placeholder-gray-400 bg-white border border-transparent border-gray-300 rounded-lg shadow-sm appearance-none focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                             placeholder="buscar" wire:model="search" />
                     </div>
-                    <select
+                    {{-- <select
                         class="px-6 py-1 text-base text-gray-700 placeholder-gray-400 bg-white border border-transparent border-gray-400 rounded-lg shadow-sm appearance-none focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent "
                         wire:model="user_role">
                         <option value="" selected>Seleccione</option>
                         @foreach ($roles as $role)
                             <option value="{{ $role }}">{{ $role }}</option>
-                        @endforeach
-                        {{-- <option value="vendedor">Vendedor</option>
+                        @endforeach --}}
+                    {{-- <option value="vendedor">Vendedor</option>
                         <option value="cliente">Cliente</option> --}}
-                    </select>
+                    {{-- </select> --}}
+                    <x-admin.users.component-input-select placeholder="Seleccione" :options="$roles" name="user_role"
+                        label="">
+
+                    </x-admin.users.component-input-select>
                     <button
                         class="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-blue-200"
                         type="button" wire:click="showModal">

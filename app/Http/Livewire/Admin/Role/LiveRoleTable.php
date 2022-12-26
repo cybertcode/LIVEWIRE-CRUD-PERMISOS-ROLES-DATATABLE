@@ -8,6 +8,7 @@ use Spatie\Permission\Models\Role;
 
 class LiveRoleTable extends Component
 {
+    protected $listeners = ['updateListRole' => 'render'];
     public function render()
     {
         $roles = Role::all();

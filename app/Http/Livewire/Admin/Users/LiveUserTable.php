@@ -23,6 +23,7 @@ class LiveUserTable extends Component
     public $icon = '-sort'; //Para el ícono
     public $user_role = ''; //Para filtrado por rol
     public $showModal = 'hidden'; //Para mostras el modal de editar
+    public $roles = []; //Para roles
     /*******************************************************
      * Para mantener persistente los filtros y la búsqueda *
      *******************************************************/
@@ -49,6 +50,7 @@ class LiveUserTable extends Component
     public function mount()
     {
         $this->icon = $this->iconDirection($this->order);
+        $this->roles = Role::pluck('name', 'name')->toArray();
     }
     public function render()
     {
@@ -71,8 +73,8 @@ class LiveUserTable extends Component
             $this->order = null;
         }
         $users = $users->paginate($this->perPage);
-        $roles = Role::pluck('name', 'name');
-        return view('livewire.admin.users.live-user-table', ['users' => $users, 'roles' => $roles]);
+        // $roles = Role::pluck('name', 'name');
+        return view('livewire.admin.users.live-user-table', ['users' => $users]);
     }
     public function sortable($camp)
     {

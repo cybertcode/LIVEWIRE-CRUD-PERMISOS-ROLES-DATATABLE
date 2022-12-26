@@ -36,5 +36,7 @@ class LiveModalEditRolePermission extends Component
         $this->target->update(['name' => $values['role']]);
         $this->reset();
         // dd($values);
+        // Para refrescar la tabla
+        $this->emit('updateListRole');
     }
 }

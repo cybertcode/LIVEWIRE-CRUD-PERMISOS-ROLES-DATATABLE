@@ -29,15 +29,25 @@
                             class="flex-1 w-full px-4 py-2 text-base text-gray-700 placeholder-gray-400 bg-white border border-transparent border-gray-300 rounded-lg shadow-sm appearance-none focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                             placeholder="buscar" wire:model="search" />
                     </div>
-                    <select
-                        class="px-6 py-1 text-base text-gray-700 placeholder-gray-400 bg-white border border-transparent border-gray-400 rounded-lg shadow-sm appearance-none focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent "
-                        wire:model="user_role">
-                        <option value="" selected>Seleccione</option>
-                        <?php $__currentLoopData = $roles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $role): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <option value="<?php echo e($role); ?>"><?php echo e($role); ?></option>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        
-                    </select>
+                    
+                    
+                    
+                    <?php if (isset($component)) { $__componentOriginalb3957d781c7e5d02f764ff127b574e50ad164226 = $component; } ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Admin\Users\ComponentInputSelect::class, ['options' => $roles,'name' => 'user_role','label' => ''] + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('admin.users.component-input-select'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $constructor = (new ReflectionClass(App\View\Components\Admin\Users\ComponentInputSelect::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['placeholder' => 'Seleccione']); ?>
+
+                     <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginalb3957d781c7e5d02f764ff127b574e50ad164226)): ?>
+<?php $component = $__componentOriginalb3957d781c7e5d02f764ff127b574e50ad164226; ?>
+<?php unset($__componentOriginalb3957d781c7e5d02f764ff127b574e50ad164226); ?>
+<?php endif; ?>
                     <button
                         class="flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-blue-200"
                         type="button" wire:click="showModal">
