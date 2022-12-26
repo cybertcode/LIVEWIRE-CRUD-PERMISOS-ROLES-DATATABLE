@@ -11,3 +11,10 @@ function canView(string $permission): bool
     });
     return boolval($permissions->count());
 }
+// Para restrigir permisos del backend
+function can(String $permission)
+{
+    if (!auth()->user()->can($permission)) {
+        abort(403, 'Usted no tiene los permisos para continuar...');
+    }
+}

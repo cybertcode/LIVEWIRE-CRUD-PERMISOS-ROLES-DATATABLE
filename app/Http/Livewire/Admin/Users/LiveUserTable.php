@@ -133,14 +133,17 @@ class LiveUserTable extends Component
     {
         // dd($user);
         if (!empty($user->name)) {
+            can('usuario update');
             $this->emit('showModal', $user);
         } else {
             // dd($user);
+            can('usuario create');
             $this->emit('showModalNewUser');
         }
     }
     public function deleteUser(User $user)
     {
+        can('usuario delete');
         if ($user->profile_photo_path) {
             //elimnamos la imagen
             Storage::delete($user->profile_photo_path);

@@ -36,6 +36,7 @@ class LiveModal extends Component
     }
     public function render()
     {
+        can('usuario read');
         return view('livewire.admin.users.live-modal');
     }
     // Mostrar modal
