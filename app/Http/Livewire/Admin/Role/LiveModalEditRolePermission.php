@@ -9,6 +9,7 @@ use App\Http\Requests\RequestUpdateRole;
 class LiveModalEditRolePermission extends Component
 {
     public $role;
+    public $target;
     public $showModal = false;
     protected $listeners = [
         'toogleModal'
@@ -23,7 +24,8 @@ class LiveModalEditRolePermission extends Component
     {
         // dd($model_id, $model);
         if ($model_id && $model) {
-            $this->role = $model == 'Role' ? Role::find($model_id)->name : '';
+            $this->target = $model == 'Role' ? Role::find($model_id) : '';
+            $this->role = $this->target->name;
         }
         $this->showModal = $this->showModal ? false : true;
     }
@@ -31,6 +33,8 @@ class LiveModalEditRolePermission extends Component
     {
         $request = new RequestUpdateRole;
         $values = $this->validate($request->rules(), $request->messages());
-        dd($values);
+        $this->target->update(['name' => $values['role']]);
+        $this->reset();
+        // dd($values);
     }
 }

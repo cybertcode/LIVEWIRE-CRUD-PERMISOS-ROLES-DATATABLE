@@ -56,6 +56,7 @@ class DatabaseSeeder extends Seeder
         $admin = Role::create(['name' => 'administrador']);
         $client = Role::create(['name' => 'cliente']);
         $seller = Role::create(['name' => 'vendedor']);
+        $seller = Role::create(['name' => 'role']);
         //Creamos los permisos
         $permissions = [
             'create',
@@ -74,9 +75,11 @@ class DatabaseSeeder extends Seeder
         $admin->syncPermissions(Permission::all());
         $client->syncPermissions(Permission::where('name', 'like', '%cliente%')->get());
         $seller->syncPermissions(Permission::where('name', 'like', '%vendedor%')->get());
+        $seller->syncPermissions(Permission::where('name', 'like', '%role%')->get());
         // Asignamos los roles a los usuarios
         $administrador->assignRole('administrador');
         $cliente->assignRole('cliente');
         $vendedor->assignRole('vendedor');
+        $vendedor->assignRole('role');
     }
 }
