@@ -178,6 +178,13 @@
                                             <i class="fa-solid fa-pen-to-square"></i> Editar
                                         </a>
                                     @endcan
+                                    @can('usuario update')
+                                        <a href="javascript:void(0)"
+                                            wire:click="$emit('addPermission',{{ $user->id }},'user')" type="button"
+                                            class="justify-center px-4 py-2 mx-0 text-base font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm">
+                                            <i class="fa-solid fa-pen-to-square"></i> Permisos
+                                        </a>
+                                    @endcan
                                     @can('usuario delete')
                                         <a href="javascript:void(0)" type="button"
                                             class="justify-center px-4 py-2 mx-0 text-base font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"

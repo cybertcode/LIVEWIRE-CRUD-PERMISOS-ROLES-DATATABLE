@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __("Listado de Usuarios") }}
+            {{ __('Listado de Usuarios') }}
         </h2>
     </x-slot>
     <div class="py-2">
@@ -18,6 +18,7 @@
  * Incluimos el componente del modal *
  *************************************/  --}}
     @push('modals')
-    <livewire:admin.users.live-modal>
-        @endpush
+        <livewire:admin.users.live-modal>
+            <livewire:admin.permission.live-add-permission>
+            @endpush
 </x-app-layout>

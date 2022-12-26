@@ -2,9 +2,10 @@
 
 namespace App\Http\Livewire\Admin\Permission;
 
+use App\Models\User;
 use Livewire\Component;
-use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class LiveAddPermission extends Component
 {
@@ -17,20 +18,36 @@ class LiveAddPermission extends Component
     {
         return view('livewire.admin.permission.live-add-permission');
     }
-    public function addPermission(Role $role)
+    public function addPermission($model_id, $model = null)
     {
+        // dd($model);
         $permissions = Permission::all();
-        $this->role = $role;
-        $havePermission = $role->permissions()->get();
-        foreach ($permissions as $permission) {
-            if ($havePermission->contains($permission)) {
-                $this->permission_check[$permission->name]['check'] = true;
-            } else {
-                $this->permission_check[$permission->name]['check'] = false;
+        if (!$model) {
+            $role = Role::find($model_id);
+            $this->role = $role;
+            $havePermission = $role->permissions()->get();
+            foreach ($permissions as $permission) {
+                if ($havePermission->contains($permission)) {
+                    $this->permission_check[$permission->name]['check'] = true;
+                } else {
+                    $this->permission_check[$permission->name]['check'] = false;
+                }
+                $this->permission_check[$permission->name]['id'] = $permission->id;
             }
-            $this->permission_check[$permission->name]['id'] = $permission->id;
+        } else {
+            // dd($this->permission_check);
+            $user = User::find($model_id);
+            $havePermission = $user->getPermissionsViaRoles();
+            foreach ($permissions as $p) {
+                if ($user->hasPermissionTo($p)) {
+                    $this->permission_check[$p->name]['check'] = true;
+                } else {
+                    $this->permission_check[$p->name]['check'] = false;
+                }
+                $this->permission_check[$p->name]['id'] = $p->id;
+            }
+            // dd($this->permission_check);
         }
-        // dd($this->permission_check);
         $this->showModal = '';
     }
     public function cerrarModal()
