@@ -8,27 +8,27 @@
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
      <?php $__env->slot('header', null, []); ?> 
-        <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            <?php echo e(__('Roles y permisos')); ?>
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <?php echo e(__("Listado de Usuarios")); ?>
 
         </h2>
      <?php $__env->endSlot(); ?>
     <div class="py-2">
         <div class="max-w-[90%] mx-auto sm:px-6 lg:px-8">
-            <div class="overflow-hidden bg-gray-200 shadow-xl sm:rounded-lg">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 
                 <?php
 if (! isset($_instance)) {
-    $html = \Livewire\Livewire::mount('admin.role.live-role-table')->html();
-} elseif ($_instance->childHasBeenRendered('2D7WJa5')) {
-    $componentId = $_instance->getRenderedChildComponentId('2D7WJa5');
-    $componentTag = $_instance->getRenderedChildComponentTagName('2D7WJa5');
+    $html = \Livewire\Livewire::mount('admin.users.live-user-table')->html();
+} elseif ($_instance->childHasBeenRendered('gzC1DpP')) {
+    $componentId = $_instance->getRenderedChildComponentId('gzC1DpP');
+    $componentTag = $_instance->getRenderedChildComponentTagName('gzC1DpP');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('2D7WJa5');
+    $_instance->preserveRenderedChild('gzC1DpP');
 } else {
-    $response = \Livewire\Livewire::mount('admin.role.live-role-table');
+    $response = \Livewire\Livewire::mount('admin.users.live-user-table');
     $html = $response->html();
-    $_instance->logRenderedChild('2D7WJa5', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('gzC1DpP', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -37,18 +37,18 @@ echo $html;
     </div>
     
     <?php $__env->startPush('modals'); ?>
-        <?php
+    <?php
 if (! isset($_instance)) {
-    $html = \Livewire\Livewire::mount('admin.role.live-modal-edit-role-permission', [])->html();
-} elseif ($_instance->childHasBeenRendered('tEEO9Ck')) {
-    $componentId = $_instance->getRenderedChildComponentId('tEEO9Ck');
-    $componentTag = $_instance->getRenderedChildComponentTagName('tEEO9Ck');
+    $html = \Livewire\Livewire::mount('admin.users.live-modal', [])->html();
+} elseif ($_instance->childHasBeenRendered('6P15hyJ')) {
+    $componentId = $_instance->getRenderedChildComponentId('6P15hyJ');
+    $componentTag = $_instance->getRenderedChildComponentTagName('6P15hyJ');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('tEEO9Ck');
+    $_instance->preserveRenderedChild('6P15hyJ');
 } else {
-    $response = \Livewire\Livewire::mount('admin.role.live-modal-edit-role-permission', []);
+    $response = \Livewire\Livewire::mount('admin.users.live-modal', []);
     $html = $response->html();
-    $_instance->logRenderedChild('tEEO9Ck', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('6P15hyJ', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -59,4 +59,4 @@ echo $html;
 <?php $component = $__componentOriginal8e2ce59650f81721f93fef32250174d77c3531da; ?>
 <?php unset($__componentOriginal8e2ce59650f81721f93fef32250174d77c3531da); ?>
 <?php endif; ?>
-<?php /**PATH C:\laragon\www\laravelv9\livewire\livewireDatatable\resources\views/admin/role/index.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\laragon\www\laravelv9\livewire\livewireDatatable\resources\views/admin/users/index.blade.php ENDPATH**/ ?>

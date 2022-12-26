@@ -30,7 +30,12 @@ class LiveModal extends Component
     public $password_confirmation = '';
     public $profile_photo_path = null;
     protected $listeners = ['showModal' => 'abrirModal', 'showModalNewUser' => 'abrirModalNuevoUsuario'];
-    public function mount()
+    // public function mount()
+    // {
+    //     $this->roles = Role::pluck('name', 'name')->toArray();
+    // }
+    // invoca varias veces
+    public function hydrate()
     {
         $this->roles = Role::pluck('name', 'name')->toArray();
     }
@@ -39,6 +44,7 @@ class LiveModal extends Component
         can('usuario read');
         return view('livewire.admin.users.live-modal');
     }
+
     // Mostrar modal
     public function abrirModal(User $user)
 
@@ -48,7 +54,8 @@ class LiveModal extends Component
         $this->name = $user->name;
         $this->lastname = $user->r_lastname->lastname;
         $this->email = $user->email;
-        $this->role = $user->role;
+        $this->role = $user->roles()->first()->name;
+
         $this->titleModal = 'Actualizando Usuario';
         $this->action = 'Actualizar';
         $this->method = 'updateUser';
@@ -99,7 +106,8 @@ class LiveModal extends Component
         // $this->user->role = $values['role'];
         // $this->user->profile_photo_path = $values['profile_photo_path'];
         // $this->user->save();
-        $this->user->assignRole($values['role']);
+        // $this->user->assignRole($values['role']); el anterior
+        $this->user->syncRoles($values['role']);
         $this->user->r_lastname()->update(['lastname' => $values['lastname']]);
         $this->emit('userListUpdate');
         $this->reset();
