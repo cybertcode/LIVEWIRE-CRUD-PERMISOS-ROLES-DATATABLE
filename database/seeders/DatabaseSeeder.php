@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         $administrador = User::factory()->create([
             'name' => 'admin',
             'password' => bcrypt('admin123'),
-            'role' => 'admin',
+            // 'role' => 'admin',
             'email' => 'admin@admin.com',
         ]);
         Apellido::factory()->create([
@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
         $cliente = User::factory()->create([
             'name' => 'cliente',
             'password' => bcrypt('cliente123'),
-            'role' => 'client',
+            // 'role' => 'client',
             'email' => 'cliente@cliente.com',
         ]);
         Apellido::factory()->create([
@@ -43,7 +43,7 @@ class DatabaseSeeder extends Seeder
         $vendedor = User::factory()->create([
             'name' => 'vendedor',
             'password' => bcrypt('vendedor123'),
-            'role' => 'seller',
+            // 'role' => 'seller',
             'email' => 'vendedor@vendedor.com',
         ]);
         Apellido::factory()->create([
@@ -56,7 +56,7 @@ class DatabaseSeeder extends Seeder
         $admin = Role::create(['name' => 'administrador']);
         $client = Role::create(['name' => 'cliente']);
         $seller = Role::create(['name' => 'vendedor']);
-        $seller = Role::create(['name' => 'role']);
+        $role = Role::create(['name' => 'role']);
         //Creamos los permisos
         $permissions = [
             'create',
@@ -75,11 +75,11 @@ class DatabaseSeeder extends Seeder
         $admin->syncPermissions(Permission::all());
         $client->syncPermissions(Permission::where('name', 'like', '%cliente%')->get());
         $seller->syncPermissions(Permission::where('name', 'like', '%vendedor%')->get());
-        $seller->syncPermissions(Permission::where('name', 'like', '%role%')->get());
+        $role->syncPermissions(Permission::where('name', 'like', '%role%')->get());
         // Asignamos los roles a los usuarios
         $administrador->assignRole('administrador');
         $cliente->assignRole('cliente');
         $vendedor->assignRole('vendedor');
-        $vendedor->assignRole('role');
+        // $vendedor->assignRole('role');
     }
 }

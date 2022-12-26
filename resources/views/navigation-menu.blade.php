@@ -15,26 +15,26 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Inicio') }}
                     </x-jet-nav-link>
-                    @role('administrador')
+                    @if (canView('usuario'))
                         <x-jet-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
                             {{ __('Usuarios') }}
                         </x-jet-nav-link>
-                    @endrole
-                    @role('administrador|vendedor')
+                    @endif
+                    @if (canView('vendedor'))
                         <x-jet-nav-link href="{{ route('sellers') }}" :active="request()->routeIs('sellers')">
                             {{ __('vendedores') }}
                         </x-jet-nav-link>
-                    @endrole
-                    @role('administrador|cliente')
+                    @endif
+                    @if (canView('cliente'))
                         <x-jet-nav-link href="{{ route('clients') }}" :active="request()->routeIs('clients')">
                             {{ __('Clientes') }}
                         </x-jet-nav-link>
-                    @endrole
-                    @role('administrador')
+                    @endif
+                    @if (canView('role'))
                         <x-jet-nav-link href="{{ route('roles') }}" :active="request()->routeIs('roles')">
                             {{ __('Roles y permisos') }}
                         </x-jet-nav-link>
-                    @endrole
+                    @endif
                 </div>
             </div>
 
