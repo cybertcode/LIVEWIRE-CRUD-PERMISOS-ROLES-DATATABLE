@@ -166,7 +166,7 @@
                             </td>
                             <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
                                 <p class="text-gray-900 whitespace-no-wrap">
-                                    {{ $user->created_at }}
+                                    {{ $user->created_at->format('d-m-Y') }}
                                 </p>
                             </td>
                             <td class="px-2 py-2 text-sm bg-white border-b border-gray-200 ">

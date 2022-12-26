@@ -19,5 +19,6 @@
  *************************************/  --}}
     @push('modals')
         <livewire:admin.role.live-modal-edit-role-permission>
-        @endpush
+            <livewire:admin.permission.live-add-permission>
+            @endpush
 </x-app-layout>

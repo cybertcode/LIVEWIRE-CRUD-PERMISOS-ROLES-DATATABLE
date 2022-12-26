@@ -54,7 +54,11 @@ class LiveModal extends Component
         $this->name = $user->name;
         $this->lastname = $user->r_lastname->lastname;
         $this->email = $user->email;
-        $this->role = $user->roles()->first()->name;
+        if ($user->roles()->count()) {
+            $this->role = $user->roles()->first()->name;
+        } else {
+            $this->role = '';
+        }
 
         $this->titleModal = 'Actualizando Usuario';
         $this->action = 'Actualizar';
