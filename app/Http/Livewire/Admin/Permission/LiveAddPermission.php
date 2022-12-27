@@ -11,7 +11,7 @@ class LiveAddPermission extends Component
 {
     public $permission_check = [];
     public $showModal = 'hidden';
-    public $role;
+    public $model;
     protected $listeners = ['addPermission'];
 
     public function render()
@@ -24,7 +24,7 @@ class LiveAddPermission extends Component
         $permissions = Permission::all();
         if (!$model) {
             $role = Role::find($model_id);
-            $this->role = $role;
+            $this->model = $role;
             $havePermission = $role->permissions()->get();
             foreach ($permissions as $permission) {
                 if ($havePermission->contains($permission)) {
@@ -37,6 +37,7 @@ class LiveAddPermission extends Component
         } else {
             // dd($this->permission_check);
             $user = User::find($model_id);
+            $this->model = $user;
             $havePermission = $user->getPermissionsViaRoles();
             foreach ($permissions as $p) {
                 if ($user->hasPermissionTo($p)) {
@@ -58,10 +59,10 @@ class LiveAddPermission extends Component
     public function addPermissionKey($permission)
     {
         // dd($permission, $this->role);
-        if (!$this->role->hasPermissionTo($permission)) {
-            $this->role->givePermissionTo($permission);
+        if (!$this->model->hasPermissionTo($permission)) {
+            $this->model->givePermissionTo($permission);
         } else {
-            $this->role->revokePermissionTo($permission);
+            $this->model->revokePermissionTo($permission);
         }
     }
 }
