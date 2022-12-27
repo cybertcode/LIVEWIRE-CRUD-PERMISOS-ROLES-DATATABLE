@@ -20,15 +20,15 @@
                 <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('admin.role.live-role-table')->html();
-} elseif ($_instance->childHasBeenRendered('il7cKIA')) {
-    $componentId = $_instance->getRenderedChildComponentId('il7cKIA');
-    $componentTag = $_instance->getRenderedChildComponentTagName('il7cKIA');
+} elseif ($_instance->childHasBeenRendered('1rWNX0i')) {
+    $componentId = $_instance->getRenderedChildComponentId('1rWNX0i');
+    $componentTag = $_instance->getRenderedChildComponentTagName('1rWNX0i');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('il7cKIA');
+    $_instance->preserveRenderedChild('1rWNX0i');
 } else {
     $response = \Livewire\Livewire::mount('admin.role.live-role-table');
     $html = $response->html();
-    $_instance->logRenderedChild('il7cKIA', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('1rWNX0i', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -40,30 +40,30 @@ echo $html;
         <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('admin.role.live-modal-edit-role-permission', [])->html();
-} elseif ($_instance->childHasBeenRendered('HKVu54i')) {
-    $componentId = $_instance->getRenderedChildComponentId('HKVu54i');
-    $componentTag = $_instance->getRenderedChildComponentTagName('HKVu54i');
+} elseif ($_instance->childHasBeenRendered('os8qPqN')) {
+    $componentId = $_instance->getRenderedChildComponentId('os8qPqN');
+    $componentTag = $_instance->getRenderedChildComponentTagName('os8qPqN');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('HKVu54i');
+    $_instance->preserveRenderedChild('os8qPqN');
 } else {
     $response = \Livewire\Livewire::mount('admin.role.live-modal-edit-role-permission', []);
     $html = $response->html();
-    $_instance->logRenderedChild('HKVu54i', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('os8qPqN', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
             <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('admin.permission.live-add-permission', [])->html();
-} elseif ($_instance->childHasBeenRendered('01bk7Qu')) {
-    $componentId = $_instance->getRenderedChildComponentId('01bk7Qu');
-    $componentTag = $_instance->getRenderedChildComponentTagName('01bk7Qu');
+} elseif ($_instance->childHasBeenRendered('dsDvcfw')) {
+    $componentId = $_instance->getRenderedChildComponentId('dsDvcfw');
+    $componentTag = $_instance->getRenderedChildComponentTagName('dsDvcfw');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('01bk7Qu');
+    $_instance->preserveRenderedChild('dsDvcfw');
 } else {
     $response = \Livewire\Livewire::mount('admin.permission.live-add-permission', []);
     $html = $response->html();
-    $_instance->logRenderedChild('01bk7Qu', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('dsDvcfw', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>

@@ -28,4 +28,10 @@ class LiveRoleTable extends Component
         $role->delete();
         $this->render();
     }
+    public function deletePermission(Permission $permission)
+    {
+        // dd($role);
+        $permission->delete();
+        $this->render();
+    }
 }
