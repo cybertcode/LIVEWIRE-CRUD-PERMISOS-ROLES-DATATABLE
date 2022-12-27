@@ -64,5 +64,6 @@ class LiveAddPermission extends Component
         } else {
             $this->model->revokePermissionTo($permission);
         }
+        $this->emit('updateListRole');
     }
 }

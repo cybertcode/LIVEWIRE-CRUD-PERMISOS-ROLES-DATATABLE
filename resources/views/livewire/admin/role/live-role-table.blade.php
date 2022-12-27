@@ -121,12 +121,15 @@
                             </th>
                             <th scope="col"
                                 class="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200">
-                                Rol
+                                Permiso
                             </th>
                             <th scope="col"
                                 class="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200">
                                 Creado
                             </th>
+                            <th scope="col"
+                                class="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200">
+                                Usos</th>
                             <th scope="col"
                                 class="px-5 py-3 text-sm font-normal text-center text-gray-800 uppercase bg-white border-b border-gray-200">
                                 Acciones
@@ -134,42 +137,47 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                <div class="flex items-center">
-                                    <div class="">
-                                        <p class="text-gray-900 whitespace-no-wrap">
-                                            #1
-                                        </p>
+                        @forelse ($permissions as $permission)
+                            <tr>
+                                <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
+                                    <div class="flex items-center">
+                                        <div class="">
+                                            <p class="text-gray-900 whitespace-no-wrap">
+                                                0{{ $loop->iteration }}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                <p class="text-gray-900 whitespace-no-wrap">
-                                    Admin
-                                </p>
-                            </td>
-                            <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                <p class="text-gray-900 whitespace-no-wrap">
-                                    12/09/2020
-                                </p>
-                            </td>
-                            <td class="px-5 py-5 text-sm bg-white border-b border-gray-200 text-center">
-                                <a href="" type="button"
-                                    class="py-2 px-4  bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white  transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg">
-                                    Permisos
-                                </a>
-                                <a href="" type="button"
-                                    class="py-2 px-4  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white  transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg">
-                                    Editar
-                                </a>
-                                <a href="" type="button"
-                                    class="py-2 px-4  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white  transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg">
-                                    Elimnar
-                                </a>
+                                </td>
+                                <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
+                                    <p class="text-gray-900 whitespace-no-wrap">
+                                        {{ $permission->name }}
+                                    </p>
+                                </td>
+                                <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
+                                    <p class="text-gray-900 whitespace-no-wrap">
+                                        {{ $permission->created_at->diffForHumans() }}
+                                    </p>
+                                </td>
+                                <td class="px-5 py-5 text-sm bg-white border-b border-gray-200 text-center">
+                                    <a href="" type="button"
+                                        class="py-2 px-4  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white  transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg">
+                                        {{ $permission->count_user }}
+                                    </a>
+                                </td>
+                                @if (!$permission->count_user)
+                                    <td class="px-5 py-5 text-sm bg-white border-b border-gray-200 text-center">
+                                        <a href="" type="button"
+                                            class="py-2 px-4  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white  transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg"
+                                            wire:click="deletePermission({{ $permission->id }})">
+                                            Elimnar
+                                        </a>
+                                    </td>
+                                @endif
+                            </tr>
 
-                            </td>
-                        </tr>
+                        @empty
+                            Sin permisos
+                        @endforelse
 
                     </tbody>
                 </table>
