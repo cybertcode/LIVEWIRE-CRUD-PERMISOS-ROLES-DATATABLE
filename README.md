@@ -32,7 +32,7 @@
 - [🏁 Tecnología utilizados ](#-tecnología-utilizados-)
   - [📒 Prerrequisitos ](#-prerrequisitos-)
   - [🚀 Clonar ](#-clonar-)
-  - [🎈 Uso ](#-uso-)
+  - [⭐ Uso ](#-uso-)
 - [👨‍💻 Desarrollador](#-desarrollador)
 
 ## 🏁 Tecnología utilizados <a name="-tecnología-utilizados-"></a>
@@ -59,22 +59,23 @@ Este proyecto se ha desarrollado utilizando las siguientes tecnologías:
 
 ### 🚀 Clonar <a name="-clonar-"></a>
 
-Seguir los siquientes pasos consecutivos - utiliza uno de ellos
+-   Seguir los siquientes pasos consecutivos - utiliza uno de ellos
 
-```
-git@github.com:cybertcode/LIVEWIRE-CRUD-PERMISOS-ROLES-DATATABLE.git
+    ```bash
+    git@github.com:cybertcode/LIVEWIRE-CRUD-PERMISOS-ROLES-DATATABLE.git
 
-ó
+    ó
 
-https://github.com/cybertcode/LIVEWIRE-CRUD-PERMISOS-ROLES-DATATABLE.git
-
-```
-
-### 🎈 Uso <a name="-uso-"></a>
-
--   En el terminal
+    https://github.com/cybertcode/LIVEWIRE-CRUD-PERMISOS-ROLES-DATATABLE.git
 
     ```
+
+### ⭐ Uso <a name="-uso-"></a>
+
+-   Ubicarte en la carpeta donde se clonó el proyecto y ejecutar las instrucciones en el terminal
+-   En el terminal
+
+    ```bash
     composer install
     cp .env.example .env
     php artisan key:generate
@@ -83,7 +84,7 @@ https://github.com/cybertcode/LIVEWIRE-CRUD-PERMISOS-ROLES-DATATABLE.git
 -   Crear tu base de datos
 -   Cambiar los datos de usuario
 
-    ```
+    ```bash
     DB_DATABASE=datatables-livewire
     DB_USERNAME=root
     DB_PASSWORD=
@@ -91,13 +92,13 @@ https://github.com/cybertcode/LIVEWIRE-CRUD-PERMISOS-ROLES-DATATABLE.git
 
 -   Cambiar el driver de local a public
 
-    ```
+    ```bash
     # FILESYSTEM_DISK=public
     ```
 
 -   En el terminal
 
-    ```
+    ```bash
     php artisan migrate
     php artisan db:seed
     php artisan serve
@@ -105,12 +106,14 @@ https://github.com/cybertcode/LIVEWIRE-CRUD-PERMISOS-ROLES-DATATABLE.git
     ```
 
 -   En el terminal
+
+    ```bash
+    php artisan storage:link
     ```
-      php artisan storage:link
-    ```
+
 -   Configurar correctamente su ruta según sea tu caso
 
-    ```
+    ```bash
     APP_URL=http://127.0.0.1:8000
     ```
 
