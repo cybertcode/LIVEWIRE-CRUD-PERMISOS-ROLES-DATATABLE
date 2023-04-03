@@ -50,7 +50,7 @@ class DatabaseSeeder extends Seeder
             'user_id' => $vendedor->id,
             'lastname' => 'HHh'
         ]);
-        Apellido::factory(100)->create();
+        Apellido::factory(5)->create();
 
         // Creamos los roles
         $admin = Role::create(['name' => 'administrador']);

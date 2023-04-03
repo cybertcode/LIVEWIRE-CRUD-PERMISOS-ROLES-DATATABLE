@@ -114,13 +114,13 @@ class LiveUserTable extends Component
     //Método para limpiar todo
     public function clear()
     {
-        $this->reset(); //hace todo lo comentado
-        // $this->page = 1;
-        // $this->order = null;
-        // $this->camp = null;
-        // $this->icon = '-sort';
-        // $this->search = '';
-        // $this->perPage = 5;
+        // $this->reset(); //hace todo lo comentado
+        $this->page = 1;
+        $this->order = null;
+        $this->camp = null;
+        $this->icon = '-sort';
+        $this->search = '';
+        $this->perPage = 5;
         // $this->user_role = '';
     }
     /************************

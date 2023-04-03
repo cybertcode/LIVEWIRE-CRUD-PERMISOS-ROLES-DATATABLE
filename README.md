@@ -1,66 +1,152 @@
-<h4>Demo final</4>
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://github.com/cybertcode/livewireDatatable/blob/master/demo.png" width="900"></a></p>
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<div align="center">
+
+<h1> DataTables avanzado con Laravel Livewire  </h1>
+
+[![Status](https://img.shields.io/badge/status-active-success.svg)]()
+[![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/pulls)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
+
+## 📖 Descripción del proyecto <a name="-descripción-del-proyecto-"></a>
+
+<p>"Este es un proyecto de ejemplo que muestra cómo crear un datatable avanzado con Laravel, Livewire y el stack TALL, que incluye filtros, relaciones, roles y permisos."
+
+## 🥇 DEMO 🥇 <a name="-demo--"></a>
+
+</p>
+</div>
+
+<div align="center">
+<p align="center">
+  <a href="" rel="demo">
+ <img width=900px  src="demo.gif" alt="demo"></a>
+</p>
+</div>
+
+---
+
+<h2> 📝 Tabla de contenido </h2>
+
+- [📖 Descripción del proyecto ](#-descripción-del-proyecto-)
+- [🥇 DEMO 🥇 ](#-demo--)
+- [🏁 Tecnología utilizados ](#-tecnología-utilizados-)
+  - [📒 Prerrequisitos ](#-prerrequisitos-)
+  - [🚀 Clonar ](#-clonar-)
+  - [⭐ Uso ](#-uso-)
+- [👨‍💻 Desarrollador](#-desarrollador)
+
+## 🏁 Tecnología utilizados <a name="-tecnología-utilizados-"></a>
+
+Este proyecto se ha desarrollado utilizando las siguientes tecnologías:
+
+-   `PHP` - Lenguaje de programación utilizado por Laravel.
+-   `Laravel` - Framework PHP utilizado para desarrollar la aplicación.
+-   `Livewire` - Biblioteca de Laravel para crear componentes de interfaces de usuario.
+-   `Alpine.js` - Framework JavaScript para crear interactividad en el front-end.
+-   `Tailwind CSS` - Framework CSS utilizado para el diseño de la interfaz.
+-   `Laravel-permission` - Biblioteca de Laravel para gestionar roles y permisos.
+
+### 📒 Prerrequisitos <a name="-prerrequisitos-"></a>
+
+-   PHP versión 8.1 o superior.
+-   Composer.
+-   MySQL.
+-   Un servidor web (por ejemplo, Apache o Nginx).
+-   Es necesario conocer del stack TALL en nivel básico
+-   Editor de código
+-   Muchas ganas de seguir aprendiendo 👍
+-
+
+### 🚀 Clonar <a name="-clonar-"></a>
+
+-   Seguir los siquientes pasos consecutivos - utiliza uno de ellos
+
+    ```bash
+    git@github.com:cybertcode/LIVEWIRE-CRUD-PERMISOS-ROLES-DATATABLE.git
+
+    ó
+
+    https://github.com/cybertcode/LIVEWIRE-CRUD-PERMISOS-ROLES-DATATABLE.git
+
+    ```
+
+### ⭐ Uso <a name="-uso-"></a>
+
+-   Ubicarte en la carpeta donde se clonó el proyecto y ejecutar las instrucciones en el terminal
+-   En el terminal
+
+    ```bash
+    composer install
+    cp .env.example .env
+    php artisan key:generate
+    ```
+
+-   Crear tu base de datos
+-   Cambiar los datos de usuario
+
+    ```bash
+    DB_DATABASE=datatables-livewire
+    DB_USERNAME=root
+    DB_PASSWORD=
+    ```
+
+-   Cambiar el driver de local a public
+
+    ```bash
+    # FILESYSTEM_DISK=public
+    ```
+
+-   En el terminal
+
+    ```bash
+    php artisan migrate
+    php artisan db:seed
+    php artisan serve
+    npm run dev
+    ```
+
+-   En el terminal
+
+    ```bash
+    php artisan storage:link
+    ```
+
+-   Configurar correctamente su ruta según sea tu caso
+
+    ```bash
+    APP_URL=http://127.0.0.1:8000
+    ```
+
+-   Datos de acceso
+    -   Correo: **admin@admin.com**
+    -   Contraseña: **admin123**
+
+## 👨‍💻 Desarrollador<a name="desarrollador"></a>
+
+<div  align="center">
+
+[![MKevyn](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=18&pause=1&multiline=true&width=435&lines=Ing.+MKevyn+%7C+BackEnd+developer;+%7B%7B+Codeo+y+luego+existo+%7D%7D)](https://github.com/cybertcode)
+
+[![cuenta](https://github-widgetbox.vercel.app/api/profile?username=cybertcode&data=followers,repositories,stars,commits&theme=nautilus)](https://github.com/cybertcode)
 
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="20px"> Mis redes sociales :<br/><br/>
+    <a href="https://www.linkedin.com/in/marvyn-kevyn-huanca-hilario-a12699b7/"><img src="https://img.shields.io/badge/linkedin-0077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
+    <a href="https://www.facebook.com/profile.php?id=100047330599374"><img src="https://img.shields.io/badge/facebook-1D4292.svg?style=for-the-badge&logo=facebook&logoColor=white"/></a>
+    <a href="https://gitlab.com/cybert22"><img src="https://img.shields.io/badge/gitlab-1D4292.svg?style=for-the-badge&logo=gitlab"/></a>
+    <a href="https://www.instagram.com/mkevynhh"><img src="https://img.shields.io/badge/instagram-E4405F.svg?style=for-the-badge&logo=instagram&logoColor=white"/></a>
+    <a href="https://www.twitch.tv/cybert22"><img src="https://img.shields.io/badge/twitch-9146FF.svg?style=for-the-badge&logo=twitch&logoColor=white"/></a>
+    <a href="https://twitter.com/Kevyn94"><img src="https://img.shields.io/badge/twitter-1DA1F2.svg?style=for-the-badge&logo=twitter&logoColor=white"/></a>
 </p>
 
-## About Laravel
+</div>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
--   [Simple, fast routing engine](https://laravel.com/docs/routing).
--   [Powerful dependency injection container](https://laravel.com/docs/container).
--   Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
--   Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
--   Database agnostic [schema migrations](https://laravel.com/docs/migrations).
--   [Robust background job processing](https://laravel.com/docs/queues).
--   [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
--   **[Vehikl](https://vehikl.com/)**
--   **[Tighten Co.](https://tighten.co)**
--   **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
--   **[64 Robots](https://64robots.com)**
--   **[Cubet Techno Labs](https://cubettech.com)**
--   **[Cyber-Duck](https://cyber-duck.co.uk)**
--   **[Many](https://www.many.co.uk)**
--   **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
--   **[DevSquad](https://devsquad.com)**
--   **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
--   **[OP.GG](https://op.gg)**
--   **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
--   **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+</br>
+<div align="center">
+<p align="center"> © 2023 Cybertcode, todos los derechos Reservados. Hecho con mucho ❤️ . </p>
+<p align="center">
+https://www.cybertcode.com
+</p>
+</div>
